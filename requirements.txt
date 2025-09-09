@@ -1,0 +1,6 @@
+pdfminer.six
+numpy
+cv2
+pytesseract
+pdf2img
+poppler

@@ -1,12 +1,21 @@
 from pdfminer.high_level import extract_pages
 from pdfminer.layout import LTTextContainer, LTChar, LTTextLine
+
 import numpy as np
 import os, shutil
+import cv2
+import pytesseract
+from pytesseract import Output
+
+import fitz
+
+
+
+
 
 class PDF_extractor:
     def __init__(self, 
-                 tau=1,
-                 rx=0.5, 
+                 rx=0.45, 
                  ry=0.8,
                  avgsx=120,
                  avgsy=120):
@@ -49,22 +58,100 @@ class PDF_extractor:
         return s
 
     def load_file(self, input_path):
-        self.unprocessed_pages = extract_pages(input_path)
+        try:
+            ## Check if a textbox exists within the pdf file
+            self.check_if_found_txt = True
+            self.unprocessed_pages = extract_pages(input_path)
+            for i,page_layout in enumerate(self.unprocessed_pages):
+                for element in page_layout:
+                    if isinstance(element, LTTextContainer):
+                        self.check_if_found_txt = False
+                        print('broke')
+                        break
+                    else:
+                        continue
+                break
+
+
+
+            ## Else we cast onto a png
+            if self.check_if_found_txt:
+                self.rx = 0.1
+                self.ry = 0.01
+                self.avgsx = 2000
+                self.avgsy = 20000
+
+                pdf_document = fitz.open(input_path)
+                self.processed_pages = []
+
+
+                for page_num in range(pdf_document.page_count):
+                    page_boxes=[]
+                    png_file_path = f"./page_{page_num + 1}.png"
+
+                    page = pdf_document.load_page(page_num)
+                    pix = page.get_pixmap(dpi=300)
+                    pix.save(png_file_path)
+                    
+                    image = cv2.imread(png_file_path) 
+                    ocr_data = pytesseract.image_to_data(image, output_type=Output.DICT)
+
+                    try:
+                        if os.path.isfile(png_file_path) or os.path.islink(png_file_path):
+                            os.unlink(png_file_path)
+                        elif os.path.isdir(png_file_path):
+                            shutil.rmtree(png_file_path)
+                    except Exception as e:
+                        print('Failed to delete %s. Reason: %s' % (png_file_path, e))
+                    
+
+
+                    for i in range(len(ocr_data['text'])):
+                        text = ocr_data['text'][i]
+                        if text.strip(): 
+                            x0 = ocr_data['left'][i]
+                            y0 = ocr_data['top'][i]
+                            x1 = x0 + ocr_data['width'][i]
+                            y1 = y0 + ocr_data['height'][i]
+                            rect = (x0, y0, x1, y1)
+                            page_boxes.append([text, rect])
+
+                    self.processed_pages.append(page_boxes)
+            
+            ## Case if texbox were detected
+            else:
+                self.processed_pages = []
+                for i,page_layout in enumerate(self.unprocessed_pages):
+                    page_boxes=[]
+                    for element in page_layout:
+                        if isinstance(element, LTTextContainer):
+                            for text_line in element:
+                                if isinstance(text_line, LTTextLine):
+                                    line_text = text_line.get_text().strip()
+                                    print((line_text, text_line.bbox))
+                                    page_boxes.append([line_text, text_line.bbox])
+                    self.processed_pages.append(page_boxes)
+            
+
+
+
+
+        except Exception as e:
+            print(f"An error occured : {e}")
+            self.processed_pages = []
+                    
+        
+    
 
 
 
     def process_file(self):
         self.pages = []
-        for i,page_layout in enumerate(self.unprocessed_pages):
-            page_text=[]
-            for element in page_layout:
-                if isinstance(element, LTTextContainer):
-                    for text_line in element:
-                        if isinstance(text_line, LTTextLine):
-                            line_text = text_line.get_text().strip()
-                            (x0, y0, x1, y1) = text_line.bbox
-                            #print(f"Texte : '{line_text}'")
-                            #print(f"BBox : x0={x0:.2f}, y0={y0:.2f}, x1={x1:.2f}, y1={y1:.2f}")
+        for i,page_layout in enumerate(self.processed_pages):
+            page_text = []
+            for textbox in page_layout:
+                            line_text = textbox[0]
+                            (x0, y0, x1, y1) = textbox[1]
 
 
                             y_scale_indicator = np.exp(- (y1 - y0) / self.avgsy)
@@ -77,15 +164,16 @@ class PDF_extractor:
                             y = int(self.ry * y_repositioned)
 
                             page_text = self.write_at_position(page_text, x, y, txt=line_text)
-            page_text = page_text[::-1]
+            if not(self.check_if_found_txt):
+                page_text = page_text[::-1]
             output_text = self.clean_empty_lines(page_text)
             self.pages.append(output_text)
 
 
 
-    def write_file(self, output):
+    def write_file(self, output_path):
         for i,page_text in enumerate(self.pages):
-            with open(f"{output}/output_{i}.txt", "w", encoding="utf-8") as f:
+            with open(f"{output_path}/output_{i}.txt", "w", encoding="utf-8") as f:
                 f.write(page_text)
 
     def pipeline(self, input_path, output_path):
@@ -105,13 +193,20 @@ class PDF_extractor:
             except Exception as e:
                 print('Failed to delete %s. Reason: %s' % (file_path, e))
 
+        ## add an empty page for good measure
+        with open(f"{output_path}/output_0.txt", "w", encoding="utf-8") as f:
+            pass
 
-PDF_extractor = PDF_extractor()
+
+
 
 list_pdf = os.listdir("./data")
-pdf_path = "./data/" + list_pdf[1]
+pdf_path = "./data/" + list_pdf[16]
 output_path = "./outputs"
 print(pdf_path)
+img_path = "./ocr_data/img_pdf.pdf"
+
+PDF_extractor = PDF_extractor()
 PDF_extractor.pipeline(pdf_path, output_path)
 
 
