@@ -19,10 +19,12 @@ class PDF_extractor:
                  ry=0.8,
                  avgsx=120,
                  avgsy=120):
+        
         """
         rx, ry : scale of the output
         avgsx, avgsy : strengh of fontsize fix
         """
+
         self.rx = rx
         self.ry = ry
         self.avgsx = avgsx 
@@ -31,19 +33,14 @@ class PDF_extractor:
     
 
     def write_at_position(self, lines, x, y, txt):
-
-
-        # S'assurer qu'il y a assez de lignes
         while len(lines) <= y:
-            lines.append('')  # ajouter des lignes vides
+            lines.append('') 
 
         line = lines[y]
 
-        # S'assurer que la ligne est assez longue
         if len(line) < x:
             line += ' ' * (x - len(line))
 
-        # Écrire le texte à la position x
         line = line[:x] + txt + line[x + len(txt):]
 
         lines[y] = line 
@@ -56,6 +53,7 @@ class PDF_extractor:
             if i!='':
                 s+=i+'\n'
         return s
+
 
     def load_file(self, input_path):
         try:
@@ -72,10 +70,9 @@ class PDF_extractor:
                         continue
                 break
 
-
-
             ## Else we cast onto a png
             if self.check_if_found_txt:
+                # We need to change hyperparams cuz the latent space is bigger :pretentious_emoji:
                 self.rx = 0.1
                 self.ry = 0.01
                 self.avgsx = 2000
@@ -118,7 +115,7 @@ class PDF_extractor:
 
                     self.processed_pages.append(page_boxes)
             
-            ## Case if texbox were detected
+            ## Case if texboxes were detected
             else:
                 self.processed_pages = []
                 for i,page_layout in enumerate(self.unprocessed_pages):
@@ -131,19 +128,12 @@ class PDF_extractor:
                                     print((line_text, text_line.bbox))
                                     page_boxes.append([line_text, text_line.bbox])
                     self.processed_pages.append(page_boxes)
-            
-
-
-
 
         except Exception as e:
             print(f"An error occured : {e}")
             self.processed_pages = []
                     
         
-    
-
-
 
     def process_file(self):
         self.pages = []
@@ -208,9 +198,6 @@ img_path = "./ocr_data/img_pdf.pdf"
 
 PDF_extractor = PDF_extractor()
 PDF_extractor.pipeline(pdf_path, output_path)
-
-
-
 
 
 
