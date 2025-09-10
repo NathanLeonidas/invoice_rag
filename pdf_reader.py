@@ -60,15 +60,16 @@ class PDF_extractor:
             ## Check if a textbox exists within the pdf file
             self.check_if_found_txt = True
             self.unprocessed_pages = extract_pages(input_path)
-            for i,page_layout in enumerate(self.unprocessed_pages):
+            for i,page_layout in enumerate(extract_pages(input_path)):
+                print(i, page_layout)
                 for element in page_layout:
                     if isinstance(element, LTTextContainer):
                         self.check_if_found_txt = False
-                        print('broke')
                         break
                     else:
                         continue
                 break
+
 
             ## Else we cast onto a png
             if self.check_if_found_txt:
@@ -84,7 +85,7 @@ class PDF_extractor:
 
                 for page_num in range(pdf_document.page_count):
                     page_boxes=[]
-                    png_file_path = f"./page_{page_num + 1}.png"
+                    png_file_path = f"./page_{page_num}.png"
 
                     page = pdf_document.load_page(page_num)
                     pix = page.get_pixmap(dpi=300)
@@ -125,9 +126,9 @@ class PDF_extractor:
                             for text_line in element:
                                 if isinstance(text_line, LTTextLine):
                                     line_text = text_line.get_text().strip()
-                                    print((line_text, text_line.bbox))
                                     page_boxes.append([line_text, text_line.bbox])
                     self.processed_pages.append(page_boxes)
+
 
         except Exception as e:
             print(f"An error occured : {e}")
@@ -191,7 +192,7 @@ class PDF_extractor:
 
 
 list_pdf = os.listdir("./data")
-pdf_path = "./data/" + list_pdf[16]
+pdf_path = "./data/" + list_pdf[0]
 output_path = "./outputs"
 print(pdf_path)
 img_path = "./ocr_data/img_pdf.pdf"
