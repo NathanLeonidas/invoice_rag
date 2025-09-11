@@ -192,7 +192,7 @@ class PDF_extractor:
 
 
 list_pdf = os.listdir("./data")
-pdf_path = "./data/" + list_pdf[0]
+pdf_path = "./data/" + list_pdf[10]
 output_path = "./outputs"
 print(pdf_path)
 img_path = "./ocr_data/img_pdf.pdf"

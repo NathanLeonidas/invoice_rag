@@ -1,83 +1,49 @@
-                                                                                                                                                                                                                                                           2/4
-                                                                                                                                                                   N° 820001209354 - 13 mai 2025
-                   Taxes et contributions
-                                                                                                   Retrouvez le détail des calculs dans la rubrique Mes documents de votre espace client
-           Retrouvez dans votre espace client
-           les flashs info concernant l'évolution des taxes
-          et contributions.
-                                                                                                                                     Sur la base de votre consommation de                                                698           kWh
-                        Informations utiles
-                                                                                                                                                    Les émissions totales(2) sont de                                     0,04          tCO
-                                                                                                                                                                                                                                                2e
-           Vous pouvez contacter votre service clients ENGIE
-           par email ou par courrier. En cas de désaccord avec la
-                                                                                                         Origine de l'électricité injectée sur le réseau français(4)
-           réponse apportée par le service client, vous pouvez
-          solliciter :
-          – le médiateur du groupe ENGIE
-                                                                                               Énergies renouvelables 4,65 %                                                         Énergies fossiles 8,82 %
-             • par internet > www.mediateur-engie.com
-             • par courrier > ENGIE - Courrier Médiateur,                                                                 solaire : 2,23 %                                                                gaz : 8,11 %
-             TSA 27601, 59973 Tourcoing Cedex                                                                              éolien : 1,52 %                                                           pétrole : 0,46 %
-          – ou, pour les clients entrant dans le champ
-                                                                                                                      biomasse : 0,90 %                                                            charbon : 0,22 %
-             d’application des dispositions de l’article L122-1 du
-                                                                                                                                                                                         autres fossiles : 0,03 %
-             code de l’Énergie,
-             le médiateur national de l’Énergie :
-             • par internet > www.energie-mediateur.fr                                                     Énergie nucléaire 86,53 %
-             • par courrier > Médiateur national de l’énergie,
-             Libre réponse n° 59252, 75443 Paris Cedex 09
-           Retrouvez sur le site du médiateur national de
-          l’énergie le comparateur d’offres
-          comparateur-offres.energie-info.fr
-           Retrouvez toutes les démarches dans les conditions
-          générales de vente.
-                                      Lexique
-          A : Autorelevé                          HPE : Heures Pleines Été
-          Alloproduite : Énergie soutirée         HPH : Heures Pleines Hiver
-          du réseau et fournie par le             HPSB : Heures Pleines
-          fournisseur d'énergie                   Saison Basse
-                                                  HPSEM : Heures Pleines
-          Autoproduite : Énergie
-          soutirée du réseau et fournie           Semaine
-                                                  HPSH : Heures Pleines
-          par le ou les producteurs de
-          l'opération d'ACC                       Saison Haute
-                                                  HPWE : Heures Pleines
-          CEE : Certificat d’Économies
-          d’Énergie                               WeekEnd
-          CSPE : Contribution au                  JA : Juillet Août
-                                                  kVA : kilo Volt Ampère
-          Service Public de l’Électricité
-          CTA : Contribution Tarifaire            kVARh : kilo Volt Ampère
-                                                  Réactif heure
-          d’Acheminement
-          E : Estimé                              PDL : Point De Livraison
-                                                  PPA : Power Purchase
-          HC : Heures Creuses
-          HCD : Heures Creuses                    Agreement
-          Demi-saison                             PRM : Point Référence
-                                                  Mesure
-          HCE : Heures Creuses Été
-          HCH : Heures Creuses Hiver              PU : Prix Unitaire
-                                                  R : Réel
-          HCSB : Heures Creuses
-                                                                                               (1) Les calculs utilisent les facteurs d’émissions équivalent CO            (CO     ) de la Base Empreinte de l’Ademe (base-empreinte.ademe.fr)
-                                                                                                                                                                          2      2e
-          Saison Basse                            RMS : Relève à la Mise en
-                                                                                                (2) Bilan prenant en compte toutes les émissions : Catégorie 1, Catégorie 2 et Catégorie 4.1 (amont du combustible, combustion,
-          HCSEM : Heures Creuses                  Service
-                                                                                                    transport et distribution).
-                                                  TCCFE : Taxe Communale
-          Semaine
-                                                                                                (4) Chiffres du mix résiduel 2023 publié par EEX (European Energy Exchange) le 1er juillet 2024
-          HCSH : Heures Creuses                   sur la Consommation Finale
-          Saison Haute                            d’Électricité
-          HCWE : Heures Creuses                   TDCFE : Taxe
-                                                  Départementale sur la
-          WeekEnd
-          Hp : Pointe                             Consommation Finale
-          HP : Heures Pleines                     d’Électricité
-          HPD : Heures Pleines
-          Demi-saison
+                 Référence de comptage
+                 Site                                VILLENEUVE D ASCQ                                                            Tarif souscrit           BTSUPLU4          Distributeur                Enedis
+                 Réf acheminement / PRM             50025428758873                                                                N° de compteur                             N° d'urgence réseau         0811882200
+                                                                                                                                                                                                                                                      792 855.00
+                 Consommations par postes horosaisonniers
+                    Période du 15/03/25 au 14/04/25
+                                                                                                                                                                                                                                                      792 855.00
+                                                              Puissance               Puissance
+                                    Énergie active                                                         Index de début           Index de fin
+                                                                atteinte              souscrite
+                                          kWh                      kW                     kVA
+                                            0                                             250                 262 349                 262 349
+                 P
+                 HPH                     5 983                     85                     250                 477 395                 483 378
+                 HCH                     3 933                     76                     250                 374 495                 378 428
+                                         4 872                     99                     250                 489 172                 494 044
+                 HPE
+                 HCE                     2 928                     76                     250                 154 437                 157 365
+                   Total :              17 716
+                                                                                                                                                                                                                               792 855.00
+                                                                         792 855
+                 Fourniture d'électricité
+                                                                                                                                                 Quantité (MWh)                 Prix unitaire (€/MWh)               Montant HT (€)         Taux TVA
+                 Prix unique : du 15/03/2025 au 14/04/2025                                                                                            17.716                              83.96                               1 487.44        20.00
+                 Total fourniture d'électricité                                                                                                                                                                               1 487.44
+                                                                                                                                                                                                                                                      792 855.00
+                 Prestations VATTENFALL et divers
+                                                                                                                                                      Quantité                        Prix unitaire                 Montant HT (€)          Taux TVA
+                 Mécanisme de capacité  : du 15/03/2025 au 14/04/2025                                                                                 17.716                               0.90                                   15.94       20.00
+                 CEE: du 15/03/2025 au 14/04/2025                                                                                                     17.716                               6.19                                  109.66       20.00
+                 Total prestations                                                                                                                                                                                               125.60
+                                                                                                                                                                                                                                                     792 855.00
+                 Utilisation du réseau public de distribution *
+                 titre(TransportCompo)                                                                                                                                                                              Montant HT (€)          Taux TVA
+                 Composante de gestion                                                                                                                                                                                             18.71       20.00
+                 Composante de comptage                                                                                                                                                                                            24.53       20.00
+                 Composante de soutirage (part fixe)                                                                                                                                                                             614.03        20.00
+                 Composante de soutirage (part variable)                                                                                                                                                                         646.20        20.00
+                 Composante d'énergie réactive                                                                                                                                                                                      0.00       20.00
+                 Total utilisation du réseau public de distribution                                                                                                                                                            1 303.47
+                                                                                                                                                                                                                                                     792 855.00
+                 Taxes et contributions
+                                                                                                                                                      Assiette                           TX / PU                      Montant (€)           Taux TVA
+                 CTA (Contribution Tarifaire d'Acheminement)                                                                                          657.27 €                            0.2193                                  144.14       20.00
+                 TICFE (Taxe Intérieure sur la Conso. Finale Élec.) 100 %                                                                           17.716 MWh                        26.23 €/MWh                                 464.69       20.00
+                 Total taxes et contributions                                                                                                                                                                                     608.83
+                  * Montant collecté par Vattenfall et reversé au gestionnaire de réseau selon le tarif TURPE.
+                 Origine 2023 de l'électricité (mix énergétique français) :
+                  64.8% nucléaire, 11.9% hydraulique, 10.2% éolien, 6.1 % gaz , 4.3% solaire, 2.1% bioénergies, 0.6% autres.
